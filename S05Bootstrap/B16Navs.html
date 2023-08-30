@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B16Navs.html</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Tab 메뉴</h2>
+        <!-- 
+            탭 메뉴로 사용시 : class="nav nav-tabs" / data-bs-toggle="tab"
+            Pills 메뉴로 사용시 : class="nav nav-pills" / data-bs-toggle="pill"
+
+            nav-justified : ul에 해당클래스를 추가하면 화면의 가로영역을 꽉 채우는 메뉴가된다.
+         -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <br>
+        <h2>Pills 메뉴</h2>
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="pill" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <br>
+        <h2>다이나믹 Tab 메뉴</h2>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#home">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu1">menu 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu2">menu 2</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <h3>HOME</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+                <h3>Menu 1</h3>
+                <p>
+                    <img src="http://seoulit.or.kr/image/top_logo2022_2.png" alt="">
+                </p>
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <h3>Menu 2</h3>
+                <h2>게시판 목록에 페이지번호 적용하기</h2>
+                <table class="table table-hover">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>No</th>
+                            <th>Title</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>100</td>
+                            <td><a href="#">오늘 날씨가 너무 더워요</a>
+                                <span class="badge bg-primary">new</span>
+                            </td>
+                            <td>초복</td>
+                            <td>2023-07-11</td>
+                        </tr>
+                        <tr>
+                            <td>99</td>
+                            <td><a href="#">오늘 날씨가 너무 더워요</a>
+                                <span class="badge rounded-pill bg-success">댓글 : 80</span>
+                            </td>
+                            <td>중복</td>
+                            <td>2023-07-21</td>
+                        </tr>
+                        <tr>
+                            <td>98</td>
+                            <td><a href="#">오늘 날씨가 너무 더워요</a>
+                                <div class="spinner-border text-warning spinner-border-sm"></div>
+                            </td>
+                            <td>입추</td>
+                            <td>2023-08-08</td>
+                        </tr>
+                        <tr>
+                            <td>97</td>
+                            <td><a href="#">오늘 날씨가 너무 더워요</a>
+                                <div class="spinner-grow text-success spinner-grow-sm"></div>
+                            </td>
+                            <td>말복</td>
+                            <td>2023-08-10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>

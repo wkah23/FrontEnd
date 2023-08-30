@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J08Function02.html</title>
+    <script>
+        /*
+            this.변수명 => 전역변수
+            변수명 => 지역변수
+            키워드 this는 JS에서는 window객체를 가리키는 것으로 전역변수를
+            구분할때 사용한다.
+        */
+        document.write("<h2>지역변수와 전역변수</h2>");
+        // 1. 전역변수로 선언. 해당 HTML문서 전체에서 사용가능함.
+        var globalVar = 100;
+        // 3. 인수로 전달된 100은 매개변수인 globalVar가 받는다.
+        function conflict(globalVar) {
+            /*
+                전역변수와 지역변수가 동일한 이름으로 충돌이 발생하므로 구분을 위해
+                this를 사용한다. this는 window객체이므로 전역변수를 가리키게 된다.
+            */
+           // 전역변수(200) = 지역변수(100) * 2
+            this.globalVar = globalVar * 2;
+            // 지역변수 => 100
+            document.write("함수안 globalVar(지역변수) = "+ globalVar+"<br/>");
+            // 전역변수 => 200(함수안에서 값이 변경되었다.)
+            document.write("함수안 this.globalVar(전역변수) = "+ this.globalVar+"<br/>");
+        }
+        // 2. 전역변수 100을 인수로 전달한다.
+        conflict(globalVar);
+        // 4. 함수내에서 값이 변경되었으므로 200이 출력된다.
+        document.write("함수밖 globalVar(전역변수) = "+ globalVar +"<br/>");
+        // 2. 인수200을 매개변수인 localVar가 받는다.
+        function conflict2(localVar) {
+            /*
+                해당 함수 내에서는 변수명의 충돌이 없으므로 전역변수 사용시 this를
+                사용하지 않는다.
+            */
+           // 전역변수에 250이 할당
+            globalVar = localVar + 50;
+            // 지역변수 280이 할당
+            localVar = localVar + 80;
+            // 함수안에는 250, 280이 출력된다.
+            document.write("함수2안 globalVar(전역변수) = "+ globalVar +
+                ", localVar(지역변수) = "+ localVar +"<br/>");
+        }
+        // 1. 전역변수가 가진 200을 인수로 전달한다.
+        conflict2(globalVar);
+        /*
+            localVar는 conflict2()함수의 매개변수, 즉 지역변수이므로, 전역적으로는
+            선언된 적이 없다. 따라서 에러가 발생하여 출력문이 실행되지 않는다.
+            해당 에러(주석된 코드)는 F12응통해 개발자모드에서 확인 가능하다.
+        */
+        // document.write("함수2밖 globalVar = "+ globalVar +
+        //     ", localVar = "+ localVar +"<br/>");
+        document.write("함수2밖 globalVar = "+ globalVar +
+            ", localVar = 선언된적없음<br/>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

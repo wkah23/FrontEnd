@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B02GridSystem.html</title>
+</head>
+<body>
+    <div class="container">
+        <!-- 
+            .row : 해당 클래스 하위에 div태그를 삽입하면 inline(가로형) 배치가 된다.
+            .col : 부트스트랩의 그리드 시스템을 사용하기 위한 클래스로 가로컬럼의 크기를 결정한다.
+                사용법 : col-화면사이즈-가로크기
+            부트스트랩의 그리드 시스템은 가로를 총 12개로 분할하여 나누고 싶은 사이즈를
+            개발자가 결정하면 된다.
+         -->
+        <h2>3개의 동일한 컬럼</h2>
+        <div class="row">
+            <div class="col bg-primary">첫번째 Col</div>
+            <div class="col bg-dark text-white">두번째 Col</div>
+            <div class="col bg-info">세번째 Col</div>
+        </div>
+        <br>
+        <h2>반응형 컬럼</h2>
+        <h3>sm(Small Device)</h3>
+        <div class="row">
+            <div class="col-sm-3 bg-primary">col-sm-3</div>
+            <div class="col-sm-3 bg-danger">col-sm-3</div>
+            <div class="col-sm-3 bg-warning">col-sm-3</div>
+            <div class="col-sm-3 bg-info">col-sm-3</div>
+        </div>
+        <br>
+        <h2>반응형 컬럼</h2>
+        <h3>lg(Large Device)</h3>
+        <div class="row">
+            <div class="col-lg-3 bg-primary">col-lg-3</div>
+            <div class="col-lg-3 bg-danger">col-lg-3</div>
+            <div class="col-lg-3 bg-warning">col-lg-3</div>
+            <div class="col-lg-3 bg-info">col-lg-3</div>
+        </div>
+    </div>
+</body>
+</html>

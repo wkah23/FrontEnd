@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zipcode.html</title>
+    <script>
+        function setZipcode(zip, addr) {
+            opener.document.getElementById("zipcode").value = zip;
+            opener.document.getElementById("zipcode").value = addr;
+            opener.document.getElementById("zipcode").focus();
+            self.close();
+        }
+        function zipClose() {
+            alert("창을 닫습니다.");
+            self.close();
+        }
+    </script>
+</head>
+<body>
+    <h2>우편번호 검색하기</h2>
+    <table border="1" width="100%">
+        <colgroup>
+            <col width="20%" />
+            <col width="*" />
+        </colgroup>
+        <tr>
+            <th>우편번호</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>1111</td>
+            <td><a href="javascript:setZipcode('11111','서울시 마포구')">
+                서울시 마포구
+            </a></td>
+        </tr>
+        <tr>
+            <td>2222</td>
+            <td><a href="javascript:setZipcode('22222','서울시 송파구')">
+                서울시 송파구
+            </a></td>
+        </tr>
+        <tr>
+            <td>3333</td>
+            <td><a href="javascript:setZipcode('33333','서울시 강서구')">
+                서울시 강서구
+            </a></td>
+        </tr>
+        <tr>
+            <td>4444</td>
+            <td><a href="javascript:setZipcode('44444','서울시 강남구')">
+                서울시 강남구
+            </a></td>
+        </tr>
+        <tr>
+            <td>5555</td>
+            <td><a href="javascript:setZipcode('55555','서울시 은평구')">
+                서울시 은평구
+            </a></td>
+        </tr>
+    </table>
+    <p style="text-align: center;">
+        <button onclick="zipClose();">우편번호 검색창 닫기</button>
+    </p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J15Event03.html</title>
+    <script>
+        /*
+            해당 함수를 사용할 때는 첫번째 인자로 이벤트명을 기술한다. 이때 on은
+            제외해야 한다. 이벤트명 앞에 on이 붙으면 자체적으로 이벤트 핸들러가 되기 때문이다.
+        */
+       window.addEventListener("load", function() {
+        alert("Load이벤트 발생됨. 문서 로드 완료됨")
+       });
+    </script>
+</head>
+<!-- 
+    이벤트 활용3 : window객체의 addEventListenner를 이용한다.
+        형식] window.addEventListener(이벤트명, 실행함수);
+ -->
+<body>
+    <h2>이벤트 - load 세번째</h2>
+    <script>
+        alert("문서가 끝나기 직전입니다.");
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B11ProgressBar.html</title>
+    <script>
+        // 타이머 변수 생성
+        let timer;
+        window.onload = function(){
+            // 문서가 로드되면 프로그래스 바의 DOM을 얻어온다.
+            let cnt = 0;
+            let pbar = document.getElementById('pbar');
+            // 프로그래스 바의 가로크기와 텍스트를 0으로 초기화한다.
+            pbar.style.width = '0%';
+            pbar.innerText = '0%';
+            // 0.1초에 한번씩 함수(Arrow Function)을 초기화한다.
+            timer = setInterval(() => {
+                // cnt를 1씩 증가시키면서 스타일과 텍스트를 변경한다.
+                cnt++;
+                pbar.style.width = cnt+'%';
+                pbar.innerText = cnt+'%';
+                // 100%가 되면 타이머를 중지시킨다.
+                if (cnt>=100)  {clearInterval(timer);}
+            },100);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>프로그래스 바</h2>
+        <h2>Progress Bar With Label</h2>
+        <div class="progress">
+            <div class="progress-bar" id="pbar"></div>
+        </div>
+    </div>
+</body>
+</html>

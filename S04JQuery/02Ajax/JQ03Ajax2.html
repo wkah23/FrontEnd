@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>JQ03Ajax2.html</title>
+        <script src="../common/jquery-3.7.0.js"></script>
+        <script>
+            $(function () {
+                $('#ajaxBtn').click(function(){
+                    $.ajax({
+                        url : './common/03JsData.js',
+                        type : 'get',
+                        dataType : 'script',
+                        success : sucFunc,
+                        // 실패했을 때 호출할 콜백함수
+                        error : errorFunc,
+                    });
+                });
+            });
+            /*
+                콜백함수의 정의 
+                    방법1 : success 혹은 error 항목에 익명함수로 정의한다.
+                        형식] success : function(매개변수) {실행부}
+                    방법2 : jQuery외부에 JS함수로 정의한다.
+                        형식] success : 함수명
+                        JS 함수는 일반적인 형식으로 정의하면 되고, 함수명을 명시할때는
+                        '함수명'만 쓰면된다. 함수명()과 같이 소괄호를 붙히지 않는다.
+            */
+            function sucFunc(resData) {
+                MyAlert('Hello',' AJAX');
+                $('#ajaxDisplay').html(resData);
+            }
+            function errorFunc(errData) {
+                console.log(errData.state, errData.statusText);
+            }
+        </script>
+    </head>
+    <body>
+        <h2>$.ajax() 메소드 사용하기</h2>
+        <button id="ajaxBtn">ajax() 메소드 실행하기</button>
+        <div id="ajaxDisplay">ajax 결과를 여기에 디스플레이</div>
+    </body>
+</html>

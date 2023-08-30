@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B06Image.html</title>
+    <style>
+        /* 이미지중 마지막 엘리먼트만 제외하여 가로크기 지정 */
+        img:not(:last-child) {width: 200px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>이미지</h2>
+        <h3>라운딩 처리 : 모서리에 살짝 둥근효과</h3>
+        <img src="images/cinqueterre.jpg" class="rounded">
+        <br>
+        <h3>원형 처리 : 이미지를 둥근 원으로 표현</h3>
+        <img src="./images/newyork.jpg" class="rounded-circle">
+        <br>
+        <h3>썸네일 : 쇼핑몰 리스트에서 사용하는 손톱이미지</h3>
+        <img src="./images/sanfran.jpg" class="img-thumbnail">
+        <h3>이미지 정렬</h3>
+        <img src="./images/paris.jpg" class="float-start">
+        <img src="./images/paris.jpg" class="float-end">
+        <!-- 
+            앞에서 사용한 float속성이 남아 뒤에 작성한 엘리먼트가
+            앞에 작성한 엘리먼트 아래로 파고들게 된다.
+            이럴때는 clear속성을 통해 float으로 부여한 속성을 파괴해야
+            정상적으로 배치된다.
+         -->
+         <div style="clear: both;"></div>
+         <br>
+         <h2>이미지 가운데 정렬하기</h2>
+         <!-- 
+             .mx-auto => margin:auto
+             .d-block => display:block 와 같이 적용되어 이미지가 가운데 정렬된다.
+            -->
+        <img src="./images/paris.jpg" class="mx-auto d-block">
+        <div style="clear: both;"></div>
+        <br>
+        <h2>반응형 이미지</h2>
+        <img class="img-fluid" src="./images/ny.jpg" alt="New York">
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

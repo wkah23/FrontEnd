@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ17Append.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $('#btn').click(function(){
+            var row = $('#row').val();
+            var col = $('#col').val();
+
+            var table = "<table border='1'>";
+            for(var i=1; i<=row; i++){
+                table += "<tr>";
+                
+                    for(var j=1; j<=col; j++){
+                        table += "<td>"+ i + "행, " + j+ "열</td>";
+                    }
+
+                    table += "</tr>";
+            }
+            table += "</table>"
+            /*
+                선택한 엘리먼트의 자식으로 컨텐츠를 추가한다. 단 기존의 내용은 유지된다.
+                append() : 기존의 내용 뒷 부분에 추가된다.
+                prependTo() : 기존의 내용 앞 부분에 추가된다. jQuery에서는 주로 $뒤에
+                    셀렉터가 나오지만 prependTo는 셀렉터가 뒷부분에 들어간다.
+            */
+            // $('#appendDisplay').append(table);
+            // $(table).prependTo('#appendDisplay');
+            /*
+            선택한 엘리먼트의 앞부분이나 뒷부분에 컨텐츠를 추가한다. 동일한 레벨
+            즉. 동위로 추가된다.
+            before() : 선택한 엘리먼트 앞부분에 추가
+            after() : 선택한 엘리먼트 뒷부분에 추가
+            */
+        //    $('#appendDisplay').before(table);
+           $('#appendDisplay').after(table);
+        });
+    });   
+    </script>
+</head>
+<body>
+    <h2>append() 메소드</h2>
+   
+   <input type="number" id="row" value="2" />행
+   <input type="number" id="col" value="2" />열
+   <input type="button" id="btn" value="동적테이블추가" />
+   <div id="appendDisplay">
+      여기에 생성됨
+    </div>
+</body>
+</html>

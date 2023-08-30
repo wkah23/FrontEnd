@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>H09Form03.html</title>
+    </head>
+    <body>
+        <h2>input 태그의 버튼속성</h2>
+        <fieldset>
+            <!-- 
+                아래와 같이 <form>태그를 선언하면 action은 현재 페이지가
+                    되고, method는 get방식이 된다.
+             -->
+            <form action="">
+                <!-- 
+                    text타입의 입력상자는 사용자가 입력하는 용동이므로 value속성
+                    은 필수가 아니다. value속성을 지정하더라도 차후 값을 변경할
+                    수 있다.
+                 -->
+                이름 : 
+                <input type="text" name="name" value="코스모" />
+                <br>
+                <!-- 
+                    checkbox, radio 타입은 입력이 불가능하므로 value속성은
+                    반드시 미리 지정해야 한다. value속성값이 없으면 선택하더라도
+                    서버로 값이 전송되지 않는다.
+                 -->
+                직업 : 
+                <input type="radio" name="job" value="S"
+                    checked="checked" />학생
+                &nbsp;&nbsp;
+                <input type="text" name="job" value="T" />강사
+                <br>
+                <!-- 
+                    textarea는 value 속성이 없지만, 태그 사이의 컨텐츠가
+                    value가 된다. 따라서 정렬을 위해 엔터나 탭이 들어가는 경우
+                    페이지에서 이상한 값이 포함되므로 정렬을 하지 않는게 좋다.
+                 -->
+                자기소개 : 
+                <textarea name="intro" id="intro" cols="50" rows="5">
+                    내용은 여기에 입력됩니다.
+                </textarea>
+                <br>
+                <!-- 
+                    image와 submit타입인 경우 둘다 폼값을 서버로 전송하는
+                    기능의 버튼으로 생성된다. image인 경우 커스팅 이미지를
+                    사용하여 버튼을 표현할 수 있다. 또한 버튼을 클릭하지
+                    않고 enter만으로 폼값을 전송할 수 있다.
+                 -->
+                <input type="image" src="./images/button.jpg" />
+
+                <br>
+
+                <input type="submit" value="전송" />
+                <br>
+                
+                <!-- 
+                    reset버튼을 눌렀을때는 내용이 지워지는 것이 아니라 페이지가
+                    최초로 로딩된 초기상태로 되돌려준다.
+                 -->
+                <input type="reset" value="리셋" />
+                <br>
+
+                <!-- 
+                    button태그는 type='botton'과 동일하다. 눌렀을때 기본동작이
+                    없으므로 주로 이벤트핸들러(리스너)와 Javascript함수를 함께
+                    연동한다.
+                 -->
+                <button type="button" onclick="alert('경고창입니다.');">
+                버튼타이틀</button>
+                <br>
+                
+                <input type="button" onmouseover="alert('마우스 올렸나요?');"
+                    value="MouseOver이벤트 " />
+                &nbsp;&nbsp;
+                <input type="button" onmouseout="alert('마우스 내렸나요?');"
+                    value="MouseOut이벤트 " />
+            </form>
+        </fieldset>
+        <br><br><br><br><br><br><br>
+    </body>
+</html>

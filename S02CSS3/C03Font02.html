@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C03Font02.html</title>
+    <style>
+        body{
+            /* 기본폰트 사이즈를 12px로 지정한다. */
+            font-size: 12px;
+        }
+        /* 해당 문서의 모든 a태그를 선택하여 스타일 적용 */
+        a{  /* 텍스트에 효과가 전혀 없는 상태로 지정 */ 
+            text-decoration: none; color: black;
+        }
+        /* 링크에 마우스를 올렸을때 스타일 적용 
+        underline : 밑줄 생성됨 */
+        a:hover{
+            text-decoration: underline; color: green;
+            font-size: 30px; font-weight: bold;
+        }
+        /* 링크를 클랙했을때
+        overline : 윗줄 생성됨 */
+        a:active{
+            text-decoration: overline; color: red;
+        }
+        /* 해당 링크에 방문했을때 스타일 지정
+        line-through : 텍스트 중간에 라인 생성됨. 적용 안됨 */
+        a:visited{
+            text-decoration: line-through; color: blue;
+        }
+        /* 
+            a태그중에 other 클래스를 가진 원소를 선택한다.
+        */
+        a.other{
+            text-decoration: none; color: brown;
+        }
+        a.other:hover{
+            text-decoration: underline; color: #EEEEEE;
+            font-size: 20px; font-weight: bold;
+        }
+        .b{text-decoration: line-through;}
+    </style>
+</head>
+<body>
+    <h2>텍스트 꾸미기</h2>
+    <div>
+        <ul class="link">
+            <li><a href="http://naver.com">네이버</a></li>
+            <li><a href="http://nate.com">네이트</a></li>
+            <li><a href="http://daum.net">다음</a></li>
+            <li><a href="http://google.com">구글</a></li>
+            <li><a href="http://ikosmo.co.kr">코스모</a></li>
+            <li><a href="http://yahoo.com">야후</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <a href="http://www.tmon.co.kr" class="other">다른효과주기</a>
+    </div>
+    <p class="b">line-through; 수정 해야 하는 것 또는 곧 지울 것은 이렇게</p>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+</body>
+</html>

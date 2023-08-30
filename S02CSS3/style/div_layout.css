@@ -1,0 +1,131 @@
+/* 
+    문서 전체의 마진과 패딩, 기본 폰트를 설정
+    윈도우 기본폰트(arial,verdana, georgia 등등)는 쉽게 사용
+    윈도우 pro버전으로 구입하셨다면 디자인 작업할 때 윈도우
+    폰트를 사용해도 된다.
+*/
+*{
+    margin: 0; padding: 0; font-family: verdana;
+}
+/* 
+    페이지 전체를 감싸는 div태그로 블럭엘리먼트 자체를 가운데 정렬하기 위해
+    margin속성을 사용한다. 만약 적용되지 않는 브라우저가 있다면 text-align
+    으로 정렬할 수 있다.
+*/
+.AllWrap{
+    width: 90%; margin: 0 auto;
+    text-align: center;
+}
+/* 헤더 부분에서는 기본 정렬을 다시 left로 변경 한다. */
+.header{
+    width: 100%;
+    text-align: left;
+}
+/* 헤더의 로고는 띄어서 좌측으로 정렬한다. */
+.header .logo{
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+/* 
+    top메뉴는 높이와 줄 간격을 동일하게 지정하여 수직방향에서의 가운데 정렬이
+    될 수 있도록 설정한다.
+*/
+.header .top_menu{
+    text-align: right;
+    height: 60px; line-height: 60px;
+}
+/* 블럭엘리먼트인 <li>태그를 인라인 속성으로 변경한 후 우측 테두리와
+패딩을 지정한다. 즉 수평방향으로 정렬된다. */
+.header .top_menu ul li{
+    display: inline;
+    border-right: 1px solid gray;
+    padding-right: 5px;
+}
+/* 메뉴 마지막 우측부분의 테두리를 제거한다. */
+.header .top_menu ul li:last-child{
+    border: none; /* 주석처리하면 테두리가 나온다. */
+    margin: 0 20px 0 0;
+}
+/* <a>태그의 기본상태 */
+a.top_link{
+    text-decoration: none; color: black;
+}
+/* 마우스를 올렸을 때 밑줄과 컬러를 변경한다. */
+a.top_link:hover{
+    text-decoration: underline; color: pink;
+    font-weight: bold;
+}
+/* 클릭했을 때 배경색을 변경한다. */
+a.top_link:active{
+    color: red; background-color: yellow;
+}
+/* 방문 이력이 있는경우 컬러를 변경한다. */
+a.top_link:visited{
+    color: blue;
+}
+/* GNB에서 사용한 float속성 제거 */
+.body{
+    clear: both;
+}
+.body .left_menu{
+    float: left;
+    width: 20%;
+    text-align: left;
+}
+/* 
+    <li>태그 좌측에 나오는 블릿을 제거한다. 마진은 상하좌우 즉 시계방향으로 
+    순서대로 제거한다.
+*/
+.body .left_menu ul{
+    list-style-type: none;
+    margin: 20px 0 0 20px;
+}
+.body .left_menu ul li{
+    padding: 3px;
+}
+/* 좌측메뉴에 마우스를 올렸을 때 박스 자체에 hover 효과 적용 */
+.body .left_menu ul li:hover{
+    background-color: bisque;
+}
+a.left_link{
+    text-decoration: none; color: black;
+}
+/* 좌측 메뉴 텍스트에 마우스를 올렸을 때 효과 적용 */
+a.left_link:hover{
+    text-decoration: underline; color: gray;
+    font-weight: normal;
+}
+a.left_link:active{
+    color: white; background-color: #000000;
+}
+a.left_link:visited{
+    color: blue;
+}
+/* 
+    box-sizing : 박스를 기본값으로 세팅한 크기를 유지할지를 결정하는
+    속성으로 border-box로 설정하면 패딩과 보더를 모두 포함하여 설정한 
+    크기대로 지정된다. 즉 패딩과 보더가 박스의 크기에 영향을 미치지 않는다.
+*/
+.body .contents{
+    text-align: left;
+    width: 80%;
+    padding: 20px;
+    float: left;
+    box-sizing: border-box;
+}
+.copyright{
+    clear: both;
+}
+.copyright .copy_logo{
+    float: left;
+    width: 30%;
+    height: 100px;
+    padding-top: 10px;
+}
+.copyright .copy_info{
+    float: left;
+    width: 70%;
+    height: 100px;
+    font-size: 12px;
+}

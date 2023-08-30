@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        뷰포트(viewport)
+            width=device-width : 단말기(모바일기기)의 화면폭에 따라 페이지의 가로폭을
+                재설정하게 해준다. 디바이스에 따라 스케일이 달라지게 되는데, 이것을 100%
+                스케일에서 CSS픽셀들로 계산된 화면의 폭을 의미한다.
+            initial-scale=1.0 : 페이지가 처음 브라우저에 로딩된 초기 줌(Zoom) 레벨을 지정한다.
+                즉 초기 확대값을 1로 지정한다.
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B01GetStartCore.html</title>
+    <!-- 
+        부트스트랩5를 사용하기 위한 방법
+        방법2 : 부트스트랩 Core파일(라이브러리)을 다운로드 한 후 Extenal방식으로
+                해당문서에 링크한다. 공식(배포)사이트 : https://getbootstrap.com
+     -->
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <!-- 
+        현재 경로를 가리킬때는 ./가 있어도 되고 생략할 수도 있다.
+     -->
+</head>
+<body>
+    <style>
+        div {border: 2px solid blueviolet;}
+    </style>
+    <div class="container">
+        <h2>container 영역</h2>
+        <p>
+            해당 컨테이너는 좌우측에 약간 여백이 있는 반응형 가로영역을 제공한다.
+        </p>
+    </div>
+    <div class="container-fluid">
+        <h2>container-fluid 영역</h2>
+        <p>
+            해당 컨테이너는 좌우측의 여백이 없는 꽉찬 가로영역을 제공한다.
+        </p>
+      </div>
+</body>
+</html>

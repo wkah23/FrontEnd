@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ01LoadMain.html</title>
+    <script src="../common/jquery-3.7.0.js"></script>
+    <script>
+        /*
+            jquery에서 제공하는 Ajax 관련함수
+            1. .load() : 외부의 문서를 동적으로 로드(포함)시킬때 사용한다.
+            형식] $(셀렉터).load('파일경로','파라미터');
+            파라미터는  JSON형식으로 여러개의 값을 설정할 수 있다.
+        */
+        // JS함수를 사용하는 방법
+        var loadCode = function(){
+            /*
+                해당 문서를 읽어와서 #loadView 엘리먼트에 내용을 동적으로 추가한다.
+                파라미터는 필요없는경우 생략할 수 있다.
+            */
+            $('#loadView').load('./common/01LoadSub.html');
+            alert('문서가 로드되었습니다.');
+        }
+        // jQuery를 사용하는 방식
+        $(function(){
+            $('#loadTxtBtn').click(function(){
+                $('#loadTxt').load('./common/01LoadTxt.txt');
+                alert('txt 문서가 로드되었습니다.');
+            });
+        })
+    </script>
+    <style>
+        /*
+            현재 문서에 존재하지 않지만 load() 함수를 통해 다른문서의 내용을 동적으로
+            로드하면 해당 스타일이 적용된다.
+        */
+        span#article{
+            border: 2px dotted red;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>$.load() 메소드 사용하기</h2>
+        <h3>html파일 로드하기</h3>
+        <div id="loadView">
+            여긴 loadView입니다.
+        </div>
+        <button onclick="loadCode();">버튼1</button>
+        <h3>txt 파일 로드하기</h3>
+        <div id="loadTxt">
+            여긴 loadTxt 입니다. 텍스트파일의 내용을
+            비동기방식으로 로드합니다.
+        </div>
+        <button id="loadTxtBtn">버튼2</button>
+    </div>
+</body>
+</html>

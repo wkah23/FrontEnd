@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J15Event05.html</title>
+    <script>
+        /*
+            키보드 이벤트
+                keydown : 키보드를 누를 때 발생하는 이벤트. shift와 같은 특수키
+                        와 한글도 인식한다.
+                keyup : 키보드를 눌렀다가 뗐을 때 발생하는 이벤트. keydown과 
+                        인식하는 키가 동일하다.
+                keypress : keydown과 동일한 이벤트지만, shift와 같은 특수키는 인식못함
+                        또한 한글도 인식하지 못한다.
+        */
+       // 아래함수의 호출횟수를 카운터하기 위한 전역변수
+       var count = 0;
+       function fnKeyHandler(flag) {
+           count++;
+            // 키보드 이벤트가 발생되면 문자열을 출력한다.
+            var spanTag = document.getElementById("span");
+            switch(flag){
+                case 1: spanTag.innerHTML = "keydown이벤트발생"+count;
+                break;
+                case 2: spanTag.innerHTML = "keypress이벤트발생"+count;
+                break;
+                case 3: spanTag.innerHTML = "keyup이벤트발생"+count;
+                break;
+            }
+        }
+        function FnKeyEvent() {
+            var span = document.getElementById("keySpan");
+            // 키보드 이벤트 발생 시 눌러진 키보드의 keycode값을 반환한다.
+            var keycode = event.keyCode;
+            // 얻어온 keycode를 span태그에 삽입한다.
+            span.innerHTML = keycode;
+            // 지정한 키보드를 웹페이지에서 차단해야 한다면 리스너로 false를 반환하면 된다.
+            if (keycode==116 || keycode==8) {
+                alert("해당 문서에서는 F5, Backspace는 "+
+                    "사용할 수 없습니다.");
+                return false;
+            }
+        }
+        function fnJuminFocus() {
+            var obj1 = document.getElementById("ju1");
+            console.log("입력값 : ", obj1.value);
+            var strLen = obj1.value.length;
+            if (strLen==6) {
+                document.getElementById("ju2").focus();
+            }
+        }
+        /*
+            매개변수 설명
+                thisObj : 현재 입력중인 DOM객체의 id속성값
+                numLength : 제한 글자수
+                nextObj : 제한 글자수가 되었을때 포커스를 이동할 DOM객체의 id속성값
+        */
+        function commonFocusMove(thisObj, numLength, nextObj) {
+            var obj2 = document.getElementById(thisObj);
+            var strLen2 = obj2.value.length;
+            if (strLen2==numLength) {
+                document.getElementById(nextObj).focus();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>키보드 이벤트</h2>
+
+    <h3>Key 이벤트 테스트</h3>
+    keydown : <input type="text" onkeydown="fnKeyHandler(1);" />
+    <br>
+    keypress : <input type="text" onkeypress="fnKeyHandler(2);" />
+    <br>
+    keyup : <input type="text" onkeyup="fnKeyHandler(3);" />
+    <br>
+    <span id="span" style="font-size: 1.5em; color: red;"></span>
+
+    <h3>keyCode 이용하여 현재키 알아내기</h3>
+    F5와 Backspace키는 사용불가합니다.
+    <br>
+    <input type="text" onkeydown="return FnKeyEvent();" />
+    <br>
+    <span id="keySpan" style="color: blue; font-size: 1.5em;"></span>
+
+    <h3>특정 조건에서 포커스 이동하기</h3>
+    <!-- 
+        시나리오] 주민등록 번호 앞의 자리를 입력하면 뒷자리로 포커스가 
+                자동으로 이동하는 함수를 작성하시오.
+     -->
+     <h4>주민등록번호 입력하기</h4>
+     <input type="text" id="ju1" size="6" onkeyup="fnJuminFocus();" maxlength="6" /> -
+     <input type="text" id="ju2" size="7" maxlength="7" onkeyup="commonFocusMove('ju2', 7, 'tel1');" />
+     <!-- 
+        연습문제] 앞에서와 마찬가지로 주민번호 뒤 7자리를 입력하면 전화번호의
+            tel1으로 이동하고, tel1에서 3자리 입력되면 tel2로 이동하는 함수를
+            생성하시오.
+      -->
+      <h4>휴대전화 입력하기</h4>
+      <input type="text" id="tel1" size="3" onkeyup="commonFocusMove('tel1', 3, 'tel2');"> -
+      <input type="text" id="tel2" size="4" onkeyup="commonFocusMove('tel2', 4, 'tel3');"> -
+      <input type="text" id="tel3" size="4" maxlength="4">
+</body>
+</html>

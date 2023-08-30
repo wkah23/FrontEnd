@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B09ButtonGroups.html</title>
+</head>
+<body>
+    <div class="container">
+        <h2>드롭다운 메뉴가 있는 버튼그룹</h2>
+        <!-- 버튼 그룹 : 버튼을 그룹화하여 네비게이션처럼 출력한다. -->
+        <p>Nest button groups to create dropdown menus:</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">자바</button>
+            <button type="button" class="btn btn-primary">오라클</button>
+            <!-- data-bs-toggle : 부트스트랩에서 제공하는 속성으로 여기서는 드롭다운 메뉴를 추가한다. -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">웹표준UI</button>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">HTML5</a>
+                    <a href="#" class="dropdown-item">CSS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

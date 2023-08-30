@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B01GetStartCDN.html</title>
+    <!-- 
+        부트스트랩5를 사용하기 위한 방법
+        방법1 : CDN(content Delivery Network)를 사용한다. 네트워크를 통해 자신과 가장
+            가까운 서버를 찾아 컨텐츠를 제공받는 서비스로 Core파일을 다운로드 할 필요없이
+            항상 최신의 컨텐츠를 제공받을 수 있어 편리하다.
+     -->
+     <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <style>
+        div {border: 2px solid blueviolet;}
+    </style>
+    <div class="container">
+        <h2>container 영역</h2>
+        <p>
+            해당 컨테이너는 좌우측에 약간 여백이 있는 반응형 가로영역을 제공한다.
+        </p>
+    </div>
+    <div class="container-fluid">
+        <h2>container-fluid 영역</h2>
+        <p>
+            해당 컨테이너는 좌우측의 여백이 없는 꽉찬 가로영역을 제공한다.
+        </p>
+      </div>
+</body>
+</html>

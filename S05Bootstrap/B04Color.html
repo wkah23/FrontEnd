@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B04Color.html</title>
+</head>
+<body>
+    <div class="container">
+        <h2>텍스트 컬러</h2>
+        <!-- 
+            텍스트의 색깔을 표현하기 위한 클래스명으로 접두러오 text-가 들어가고
+            info, warning과 같은 정해진 단어를 사용하는 패턴이다.
+         -->
+        <p class="text-muted">This text is muted.</p>
+        <p class="text-primary">This text is important.</p>
+        <p class="text-success">This text indicates success.</p>
+        <p class="text-info">This text represents some information.</p>
+        <p class="text-warning">This text represents a warning.</p>
+        <p class="text-danger">This text represents danger.</p>
+        <p class="text-secondary">Secondary text.</p>
+        <p class="text-dark">This text is dark grey.</p>
+        <p class="text-body">Default body color (often black).</p>
+        <p class="text-light">This text is light grey (on white background).</p>
+        <p class="text-white">This text is white (on white background).</p>
+
+        <h2>텍스트 투명도</h2>
+        <!-- 50%의 투명 효과를 적용한다. -->
+        <p class="text-black">선명한 검은색으로 표현된다.</p>
+        <p class="text-black-50">흐릿한 검은색(회색톤)으로 표현된다.</p>
+        <p class="text-white bg-dark">선명한 흰색</p>
+        <p class="text-white-50 bg-dark">흐릿한 흰색</p>
+
+        <h2>배경색 지정하기</h2>
+        <!-- 
+            접두어 text- 대신 bg- 로 클래스명을 변경하면 배경색을 설정할 수 있다.
+            컬러 관련된 모든 클래스명은 이와 동일한 패턴을 가진다.
+         -->
+        <div class="bg-primary p-3">primary</div>
+        <div class="bg-success p-3">success</div>
+        <div class="bg-info p-3">info</div>
+        <div class="bg-warning p-3">warning</div>
+        <div class="bg-danger p-3">danger</div>
+        <div class="bg-secondary p-3">secondary</div>
+        <div class="bg-dark p-3">dark</div>
+        <div class="bg-light p-3">light</div>
+        <br>
+        <h2>텍스트 색상을 자동으로 지정한다.</h2>
+        <p class="text-bg-primary">This text is important.</p>
+        <p class="text-bg-success">This text indicates success.</p>
+        <p class="text-bg-info">This text represents some information.</p>
+        <p class="text-bg-warning">This text represents a warning.</p>
+        <p class="text-bg-danger">This text represents danger.</p>
+        <p class="text-bg-secondary">Secondary background color.</p>
+        <p class="text-bg-dark">Dark grey background color.</p>
+        <p class="text-bg-light">Light grey background color.</p>
+    </div>
+</body>
+</html>

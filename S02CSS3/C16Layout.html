@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C16Layout.html</title>
+    <style>
+        /* 문서 전체의 div에 테두리를 지정하여 영역을 확인 */
+        /* div {border: 0px solid red;} */
+        /* 좌측메뉴와 우측컨텐츠 영역을 수평방향으로 정렬하기 위해 float
+        속성을 사용하여 좌,우측으로 정렬한다. */
+        /* .left_menu {width: 30%; float: left;} */
+        /* .contents {float: right; width: 70%;} */
+        /* 앞에서 사용한 float속성이 남아있는 경우 카피라이트가 위쪽 엘리먼트
+        아래로 파고들어가므로 속성을 파괴해야한다. */
+        /* .copyright {clear: both;} */
+    </style>
+    <link rel="stylesheet" href="./style/div_layout.css" />
+</head>
+<body>
+    <div class="AllWrap">
+        <!-- 
+            GNB 영역 : Global Navigation Bar (상단메뉴바)
+            일반적으로 상단 부분은 페이지를 이동하더라도 변하지 않는 
+            메뉴로 구성된다.
+         -->
+        <div class="header">
+            <!-- 
+                로고(CI : Coperation Identity : 기업 이미지)
+             -->
+            <div class="logo">
+                <img src="http://www.seoulit.or.kr/image/top_logo2022_2.png" 
+                    alt="서울IT아카데미" />
+            </div>
+            <!-- 
+                top메뉴 삽입 : a태그를 통해 링크를 걸때 #으로 시작하면 앵커기능으로
+                    내부 페이지에서 특정영역으로 이동하게 된다.
+             -->
+            <div class="top_menu">
+                <ul>
+                    <li><a href="http://seoulit.or.kr"
+                        class="top_link">HOME</a></li>
+                    <li><a href="#login" class="top_link">로그인</a></li>
+                    <li><a href="#regist" class="top_link">회원가입</a></li>
+                    <li><a href="#notice" class="top_link">공지사항</a></li>
+                    <li><a href="#board" class="top_link">게시판</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- GNB 영역의 끝 -->
+        <!-- Body 영역은 좌측 메뉴와 컨텐츠 영역으로 나누어 진다. -->
+        <div class="body">
+            <!-- 
+                LNB 영역(Local Navigation Bar) : 좌측메뉴 부분은 주로 대메뉴에 따른
+                        서브메뉴를 출력하게 된다.
+             -->
+            <div class="left_menu">
+                <ul>
+                    <li><a href="#Login" class="left_link">로그인</a></li>
+                    <li><a href="#Regist" class="left_link">회원가입</a></li>
+                    <li><a href="#Notice" class="left_link">공지사항</a></li>
+                    <li><a href="#Board" class="left_link">자유게시판</a></li>
+                </ul>
+            </div>
+        <div class="contents">
+            <h2>백악관 "6·12 회담 개최 준비…회담 미뤄져도 준비돼있어"(종합)</h2>
+            (워싱턴=연합뉴스) 강영두 특파원 = 세라 샌더스 백악관 대변인은 29일(현지시간) 북미정상회담이 다음달 12일 예정대로 개최될 것을 전제로 준비를 하고 있다고 밝혔다.
+            <br /><br />
+            만약 회담이 뒤로 미뤄지더라도 준비에 차질이 없을 것이라고 샌더스 대변인은 강조했다.
+            <br /><br />
+            샌더스 대변인은 이날 오후 도널드 트럼프 대통령을 수행해 테네시주(州) 내슈빌로 향하는 전용기 안에서 기자간담회를 열어 "대통령은 현재 진행 중인 북미 간의 논의가 아주 잘 진행되고 있다고 생각하고 있다"면서 이같이 밝혔다.
+            <br /><br />
+            그러면서 "이번 주 열리는 여러 회담들은 틀림없이 진전을 보이고 있다는 신호"라고 말했다. 미국과 북한은 회담 의제와 의전 등의 문제를 놓고 판문점과 싱가포르에서 각각 실무회담을 하고 있으며, 뉴욕에서는 마이크 폼페이오 국무장관과 김영철 노동당 부위원장 겸 통일전선부장의 고위급 회담도 열릴 예정이다.
+            <br /><br />
+            샌더스 대변인은 이어 "북미정상회담이 다음 달 12일 열릴 경우에 대비해 확실히 준비하고 있다. 어떤 이유로 인해 그 이후에 열릴 경우에도 마찬가지로 우리는 준비가 돼 있을 것"이라며 "북미정상회담은 열릴 것으로 예상한다"고 말했다.
+            <br /><br />
+            북미정상회담이 6월12일보다 늦게 열릴 수 있다는 가능성도 있음을 내비친 것은 샌더스 대변인만이 아니다.          
+        </div>
+        <div class="copyright">
+            <div class="copy_logo">
+                <img src="http://www.seoulit.or.kr/image/footer_logo.gif"
+                alt="서울IT아카데미" />
+            </div>
+            <div class="copy_info">
+                서울IT아카데미 홍대 &nbsp;&nbsp;
+                서울시 마포구 양화로 12길 &nbsp;&nbsp;
+                대표이사 : 홍길동 <br>
+                사업자등록번호 : 201-85-36302 &nbsp;&nbsp;  
+                TEL : 02-1234-5678 &nbsp;&nbsp;
+                FAX : 02-9876-5432 <br>
+                E-mail : seoulit1@gmail.com  <br>
+                COPYRIGHT ⓒ 2018 서울IT아카데미 홍대 All Right Reserved
+            </div>  
+        </div>
+    </div>
+</body>
+</html>

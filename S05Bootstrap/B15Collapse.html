@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B15Collapse.html</title>
+</head>
+<body>
+    <div class="container">
+        <h2>텍스트 설명 접기 기본</h2>
+        <!-- 
+            버튼 클릭시 텍스트 부분을 보임/숨김으로 토글할 수 있다.
+            버튼의 data-bs-target속성과 텍스트 영역의 id속성을 통해
+            연결한다.
+         -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">버튼1</button>
+        <div id="demo" class="collapse">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        
+        <h2>두번째 설명 사용하기</h2>
+        <!-- 
+            한 페이지에서 2개 이상을 사용해야 한다면 텍스트 영역의
+            id속성값을 중복되지 않게 변경해야 한다
+        -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo2">버튼2</button>
+        <div id="demo2" class="collapse">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        
+        <h2>기본 보임 상태</h2>
+        <button type="button" class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#demo3">버튼3</button>
+        <div id="demo3" class="collapse show">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+
+        <h2>아코디언 블럭</h2>
+        <!-- 
+            아코디언 블럭의 경우 타이틀 영역의 href속성과 내용영역의
+            id속성으로 연결한다.
+         -->
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                        Collapsible Group Item #1
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum..
+                    </div>
+                </div>
+            </div>
+          
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+                        Collapsible Group Item #2
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum..
+                    </div>
+              </div>
+            </div>
+          
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+                        Collapsible Group Item #3
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum..
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

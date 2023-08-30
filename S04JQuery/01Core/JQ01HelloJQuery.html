@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ01HelloJQuery.html</title>
+    <script src="../common/jquery-3.7.0.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script>
+//         $(document).ready(		
+        // 	function(){
+        // 		alert("jQuery 시작하기1");
+        // 	}
+        // );
+        // $().ready(		
+	    //     function(){
+        //         alert("jQuery 시작하기2");
+        //     }
+        // );
+        // jQuery(		
+        //     function(){
+        //         alert("jQuery 시작하기3");
+        //     }
+        // );
+        /*
+            jQuery의 Entry Point를 표현하는 4가지 방법으로 HTML문서가 모두 로드된
+            이후 실행한다는 의미를 가지고 있다. load이벤트와 동작방식이 동일하다.
+        */
+       $(function() {
+            console.log("jQuery 시작하기","가장많이 사용하는 방법");
+            alert("jQuery 시작하기4")
+       }); 
+    </script>
+</head>
+<body>
+    <h2>jQuery 시작하기</h2>
+    <p>
+        4가지 방법을 통해 jQuery의 Entry point를 만들 수 있다.
+    </p>
+    <script>
+        alert("HTML 문서의 끝~~~!!");
+    </script>
+</body>
+</html>

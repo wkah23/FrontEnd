@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B13BtnListGroup.html</title>
+</head>
+<body>
+    <div class="container">
+        <h2>그룹화된 버튼 or 리스트</h2>
+        <!-- 
+            m-2 : margin을 적용한다. 유틸리티에서 자세히 설명
+            d-grid : 블럭화된 버튼을 만들어준다.
+         -->
+        <div class="row m-2">
+            <h4>버튼 그룹으로 메뉴 만들기</h4>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info">Apple</button>
+                <button type="button" class="btn btn-info">Samsung</button>
+                <button type="button" class="btn btn-info dropdown-toggle"  data-bs-toggle="dropdown">Sony</button>
+                <!-- 버튼에 드롭다운 메뉴를 -->
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Tablet</a>
+                    <a href="#" class="dropdown-item">Smartphone</a>
+                    <!-- 드롭다운 메뉴에 구분선을 추가한다. -->
+                    <hr class="dropdown-divider">
+                    <a href="#" class="dropdown-item">카메라</a>
+                    <a href="#" class="dropdown-item">워크맨</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row m-2">
+            <!-- 그리드 시스템으로 좌측3, 중간6, 우측3으로 영역을 분리한다. -->
+            <div class="col-sm-3">
+                <h4>좌측메뉴(li)</h4>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">회원가입</a>
+                    <a href="#" class="list-group-item list-group-item-action active">로그인</a>
+                    <a href="#" class="list-group-item list-group-item-action">아이디/비밀번호찾기</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h4>여기는 컨텐츠 영역입니다.</h4>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <h4>우측메뉴(btn)</h4>
+                <!-- 
+                    드롭다운 메뉴의 방향설정
+                        - 아래 : 디폴트 값이므로 클래스가 필요없다.
+                        - 좌측 : dropstart
+                        - 우측 : dropend
+                        - 상단 : dropup
+                 -->
+                <div class="btn-group-vertical dropstart">
+                    <button type="button" class="btn btn-warning">Apple</button>
+                    <button type="button" class="btn btn-warning dropdown-toggle" 
+                    data-bs-toggle="dropdown">Samsung</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">갤럭시S</a>
+                        <a class="dropdown-item" href="#">갤럭시노트</a>
+                        <a class="dropdown-item" href="#">갤럭시TAB</a>
+                    </div>
+                    <button type="button" class="btn btn-warning">Sony</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h4>그룹화된 리스트로 메뉴만들기</h4>
+                <div class="list-group list-group-horizontal text-center">
+                    <a href="#" class="list-group-item list-group-item-action">회원정보변경</a>
+                    <a href="#" class="list-group-item list-group-item-action active">로그아웃</a>
+                    <a href="#" class="list-group-item list-group-item-action">마이페이지</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

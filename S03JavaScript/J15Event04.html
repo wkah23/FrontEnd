@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J15Event04.html</title>
+</head>
+<body>
+    <!-- 
+        click 이벤트 : HTML에서 가장많이 사용되는 이벤트로 마우스로 클릭했을때 발생된다.
+            HTML의 모든 엘리먼트에 부착할 수 있다.
+        cursor 속성 : 마우스 커서의 모양을 변경할 수 있는 CSS의 스타일이다.
+     -->
+    <h2>이벤트 - click</h2>
+    <div style="border: 1px solid red; cursor: pointer;"
+        onclick="alert('div에 클릭이벤트 발생됨');">
+        div클릭이벤트
+    </div>
+
+    <h3 style="border: 1px solid blue; cursor: crosshair;"
+        onclick="alert('h3에 클릭이벤트 발생');">
+        h3클릭이벤트
+    </h3>
+
+    <!-- 
+        change 이벤트 : select에서 option을 선택할때마다 발생하는 이벤트이다. 주로
+            select에서 사용한다.
+     -->
+    <h2>이벤트 - change</h2>
+    <script>
+        function fnSelect(obj) {
+            /*
+                매개변수로 전달된 object와 getElementById()로 얻어온 객체는 동일한 DOM이다.
+                즉 <form>태그의 하위태그에서는 this를 통해 해당 DOM객체 자체를 매개변수로 전달할 수 있다.
+            */
+            var obj2 = document.getElementById("fruit");
+
+            /*
+                selectedIndex : select하위의 option태그는 2개이상의 항목을 가지므로
+                    인덱스를 통해 접근할 수 있다. 해당 속성은 선택한 option의 인덱스를 반환한다.
+            */
+            alert("선택항목의 인텍스 : "+obj2.selectedIndex);
+            /*
+                option : select 하위의 option에 접근할 수 있는 속성으로 배열처럼
+                    사용할 수 있다. 즉, length를 사용하면 option태그의 갯수를 반환한다.
+            */
+            var items = obj.options.length;
+            alert("총아이템 : "+ items);
+            /*
+                option태그의 value를 가져오는 방법
+                    방법1 : DOM객체.value
+                    방법2 : DOM객체.option[인덱스].value
+                option태그의 text를 가져오는 방법
+                    위와 방법은 동일하고 text속성만 변경하면 된다.
+                * 마우스를 통해 선택한 항목을 가져올때는 1번 방법을,
+                특정인덱스를 사용할 경우에는 2번 방법을 사용하면 된다.
+            */
+            alert("value값 : "+obj.value);
+            alert("value값 : "+obj.options[obj.selectedIndex].value);
+            
+            /* 인덱스는 숫자를 직접 기술해도 된다. */
+            alert("텍스트 얻기 : "+obj[obj.selectedIndex].text);
+            alert("텍스트 얻기 : "+obj.options[obj.selectedIndex].text);
+            // 이부분은 인덱스를 3으로 기술하므로 '바나나'가 출력된다.
+            // alert("텍스트 얻기 : "+obj.options[3].text);
+            
+            // 5번 반복
+            for (var i = 0; i < items; i++) {
+                /*
+                    checkbox, radio의 경우 checked속성을 통해 체크여부를 확인한다.
+                    select의 경우 selected속성을 통해 선택여부를 확인할 수 있다.
+                */
+                if (obj.options[i].selected==true) {
+                } else {
+                    /* 선택한 항목 이외의 option태그는 text부분을 아래와 같이 =====
+                    으로 변경한다. */
+                    obj.options[i].text = "======";
+                }
+            }
+        }
+        function fnSubmit() {
+            /*
+                form태그 하위의 input태그에 접근시에는 form태그의 name속성을 통해
+                접근할 수 있다. 즉 name속성만을 통해 DOM객체에 접근한다.
+            */
+           /* 이처럼 getElementXXX()계열의 함수를 통해서도 DOM객체를 얻어올 수 있다. */
+            // var txtObj = document.subForm.txt;
+            var txtObj = document.getElementById("idTxt");
+            /*
+                폼값을 서버로 전송할때는 name속성에 입력한 값을 실어서 전송하게 되므로
+                꼭 필요한 경우가 아니라면 id속성은 사용하지 않는것이 좋다.
+                즉, name속성을 통해 접근하는 것이 더 좋은 방법이다.
+            */
+            // input상자에 입력된 내용이 없는경우... 
+            if (txtObj.value=="") {
+                // 경고창을 띄운다.
+                alert("텍스트를 입력하세요");
+                // input 상자로 focus()를 이동한다.
+                txtObj.focus();
+                // submit 이벤트 리스너로 false를 반환한다.
+                return false;
+                // 이벤트 리스너가 false를 반환받으면 전송은 중단된다.
+            }
+            /* 
+                아래문장은 없더라도 form값은 전송되므로 보통은 생략한다.
+                즉, false가 반환되지 않으면 form값은 전송된다.
+            */
+            // return true;
+        }
+        /*
+            form태그는 문서 내에서 2개이상 사용할 수 있으므로 forms[인덱스]와 같은
+            형태로 DOM에 접근할 수 있다.
+        */
+        window.onload = function() {
+            /* reset 이벤트가 발생되면 해당 폼을 초기상태로 되돌려준다. */
+            document.forms[0].onreset = function() {
+                alert("reset 이벤트 발생");
+            }
+        }
+    </script>
+
+    <h2>select에서 발생되는 change이벤트</h2>
+    <h3>당신이 좋아하는 과일은?</h3>
+    <select id="fruit" onchange="fnSelect(this);">
+        <option value="apple">사과</option>
+        <option value="orange">오렌지</option>
+        <option value="mango">망고</option>
+        <option value="banana">바나나</option>
+        <option value="guaba">구아바</option>
+    </select>
+
+    <h2>submit / reset 이벤트</h2>
+    <!-- 
+        action : 폼값을 전송할 서버의 URL 혹은 경로명을 기술한다.
+        onsubmit : submit 이벤트 리스너로 만약 false가 반환되면 전송이 중단된다.
+                true가 전달되면 폼값은 전송되지만 통상적으로 사용하지 않는다.
+     -->
+    <form name="subForm" action="http://seoulit.or.kr"
+        onsubmit="return fnSubmit();">
+        <input type="text" name="txt" id="idTxt" value="디폴트값" />
+        <input type="reset" value="리셋" />
+        <input type="submit" value="서브밋(전송)" />
+        <input type="image" src="./images/button.jpg" />
+    </form>
+</body>
+</html>

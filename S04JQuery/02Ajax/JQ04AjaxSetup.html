@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>JQ04AjaxSetup.html</title>
+        <script src="../common/jquery-3.7.0.js"></script>
+        <script>
+            /*
+                $.ajaxSetup() : 통일하게 반복되는 $.ajax()의 인자를 설정하여 반복되는
+                    인자의 사용을 생략할 수 있다. type, dataType등 기본적으로 사용되는
+                    인자들을 묶어주면 코드를 줄일 수 있다.
+            */
+            $(function () {
+                // 요청할 URL, 콜백데이터의 타입을 먼저 setup한다.
+                $.ajaxSetup({
+                    url : './common/04JSONData.json',
+                    dataType : 'json'
+                });
+                $('#btn').click(function(){
+                    /*
+                        앞에서 setup한 2개의 항목을 제외하고 나머지 인자에 대해서만 정의하면 된다.
+                        즉 ajaxSetup은 ajax함수의 부모의 역할을 한다고 보면된다.
+                    */
+                    $.ajax({
+                        // 요청 성공시 자동 호출될 콜백함수 정의
+                        success : function(resData) {
+                            console.log(resData);
+                            /*
+                                콜백테이터 resData는 아래와 같은 JSON배열이다.
+                                [
+                                    {"name":"홍길동","age":20, "주소":"서울시 송파구"},
+                                    .......
+                                ]
+                                배열은 JSON객체로 구성되어 있어, 원소의 갯수만큼 each()함수를 통해 반복할 수 있다.
+                                each() : 함수 호출시 파라미터는 2가지를 사용할 수 있다.
+                                    index : 반복시 사용할 인덱스로 0부터 시작한다.
+                                    value : 해당 루프에서 반환되는 원소(혹은 데이터)
+                            */
+                            $.each(resData, function(index,value){
+                                console.log(index, value);
+                                /*
+                                    JSON을 parsing(파싱) 할때는 .(닷)과 [](대괄호)
+                                    두가지 형태를 사용할 수 있다.
+                                */
+                                var htmlStr = '<tr>';
+                                htmlStr += ' <td>'+(index+1)+'</td>';
+                                htmlStr += ' <td>'+value.name+'</td>';
+                                htmlStr += ' <td>'+value['age']+'</td>';
+                                htmlStr += ' <td>'+value['주소']+'</td>';
+                                htmlStr += '   </tr>';
+                                // 기존 엘리먼트 뒷부분에 문자열을 추가한다.
+                                $('#tbl1').append(htmlStr);
+                                /*
+                                    여기서는 <table>태그 안쪽에 자식으로 추가해야 하므로 
+                                    after()는 사용할 수 없다.
+                                */
+                                // $('#tbl1').after(htmlStr);
+                                /*
+                                    html() 함수는 기존의 데이터를 지운 후 대체할 컨텐츠를 추가하므로
+                                    마지막 원소인 '김유신'만 테이블에 남게된다.
+                                */
+                                // $('#tbl1').html(htmlStr);
+                            });
+                        },
+                        error : errFunc
+                    });
+                });
+            });
+            /*
+                요청 실패시 호출되는 콜백함수로 error항목에 함수명만 명시하면 호출시
+                매개변수로 에러객체가 전달된다.
+            */
+            function errFunc(errData) {
+                alert('실패 : '+errData.status+':'+errData.statusText);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>$.ajaxSetup() 메소드 사용하기</h2>
+            <table border="1" id="tbl1">
+                <tr>
+                    <td>NO</td>
+                    <td>이름</td>
+                    <td>나이</td>
+                    <td>출신지역</td>
+                </tr>
+            </table>
+            <button id="btn">JSON데이터 가져오기</button>
+        </div>
+    </body>
+</html>

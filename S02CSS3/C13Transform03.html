@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C13Transform03.html</title>
+    <style type="text/css">
+        div{
+            width: 100px; height: 100px; text-align: center;
+            line-height: 100px;
+            transition-duration: 1s;
+        }
+        .trans1{background-color: cyan;}
+        .trans2{background-color: purple;}
+        .trans1:hover{
+            background-color: red;
+            /* 
+                opacity : Alpha(투명도) 값을 지정한다. 0에 가까울수록 투명해지고,
+                        1에 가까울수록 선명해진다.
+                translateX : 수평방향으로 이동(Y라면 수직방향 이동)
+                rotate : 시계방향으로 90도 회전(양수인경우)
+                scaleX : 수평방향으로 크기조정(1보다 작으면 축소)
+            */
+            opacity: 0.2;
+            transform: translateX(400px)
+                    rotate(54000deg)
+                    scaleX(0.5);
+        }
+        .trans2:hover{
+            /* 
+                translate(x축, y축) : 각 축의 순서대로 이동한다.
+                scale(x축, y축) : 각 축의 순서대로 크기조정(1보다 크면 확대)
+                rotate : 음수이면 반시계방향으로 180도 회전
+            */
+            background-color: green;
+            transform: translate(400px, 100px)
+                    scale(1.5, 1.5)
+                    rotate(54000deg);
+        }
+    </style>
+</head>
+<body>
+    <h2>Transform(변형3)</h2>
+    <div class="trans1">Trans1</div>
+    <div class="trans2">Trans2</div>
+</body>
+</html>

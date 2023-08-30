@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            alert("해당 문서의 load가 완료되었습니다.");
+            /* 문서의 로드가 완료된 후 해당 코드가 실행되므로 이 경우에는 문제없이
+            DOM을 가져올 수 있다. */
+            var i = document.getElementById("myInput").value;
+            alert("i="+i);
+        }
+        /*
+            해당 코드를 load이벤트 핸들러 밖에서 실행하면 에러가 발생한다. JS는 인터프리터
+            방식으로 동작하므로 해당 코드가 실행되는 시점에 정의된 엘리먼트가 없으므로 DOM
+            객체를 가져올 수 없어 에러가 발생하게 된다.
+        */
+        // var i = document.getElementById("myInput").value;
+        //     alert("i="+i);
+    </script>
+</head>
+<!-- 
+    이벤트 활용2 : window객체에 이벤트 핸들러를 부착한다. window객체는 JS에서
+    최상위 객체로 현재 HTML문서를 실행한 웹브라우저를 가리킨다.
+ -->
+<body>
+    <h2>이벤트 - load 두번째</h2>
+    <script>
+        alert("문서가 끝나기 직전입니다.");
+    </script>
+    <input type="text" id="myInput" value="이벤트활용하기">
+</body>
+</html>

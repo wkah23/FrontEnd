@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.3.0/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.0/js/bootstrap.bundle.js"></script>
+    <title>B07Alerts.html</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Alerts</h2>
+        <!-- 
+            JS의 alert() 와는 형태가 다른 메세지 박스와 같은 alert를 제공한다.
+            x버튼을 통해 닫기 기능을 구현할 수 있고, 페이드인 효과를 줄 수도 있다.
+         -->
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong>
+            닫기 기능을 추가한 Alerts
+        </div>
+         <!-- 이와 같이 가로크기를 지정할 수 있다. -->
+        <div class="alert alert-danger alert-dismissible" style="width: 150px;">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Danger!</strong>
+            애니메이션 효과는 적용하지 않음
+        </div>
+        <br>
+        <h2>페이드인(애니메이션) 효과가 있는 Alerts</h2>
+        <div class="alert alert-primary alert-dismissible fade show" style="width: 300px;">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>primary!</strong>
+            애니메이션 효과가 적용되어 닫힘
+        </div>
+        <br>
+        <h2>Grid System을 적용하여 Alerts 가로로 배치하기</h2>
+        <div class="row">
+            <div class="col-3">
+                <div class="alert alert-warning alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>그리드1</strong>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="alert alert-primary alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>그리드2</strong>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>그리드3</strong>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>그리드4</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

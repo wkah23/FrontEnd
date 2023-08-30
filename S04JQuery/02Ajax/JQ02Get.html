@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ02Get.html</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        /*
+            jQuery에서 제공하는 Ajax관련 함수
+                $.get() : HTTP get방식을 통해 서버로부터 데이터를 받을 때 사용하는 함수
+                형식] $.get(URL, param, callback);
+                    - URL : 정보를 요청할 서버의 경로 및 파일명
+                    - param : 서버로 전송할 파라미터로 JSON 객체 형태로 기술
+                    - callback : 요청에 성공했을 때 실행되는 콜백함수
+                        콜백함수가 호출될때 전달되는 파라미터를 통해 성공 혹은 실패여부를
+                        판단할 수 있다.
+                    요청시 파라미터가 없는경우 생략할 수 있다.
+        */
+        $(function(){
+             // 해당 버튼을 클릭했을때 get방식으로 요청한다.
+            $('#btnXml').click(function(){
+                $.get(
+                    // 요청 URL
+                    './common/02NameCard.xml',
+                    // 파라미터는 필요없는경우 생략가능
+                    // 콜백함수
+                    function(data){
+                        /*
+                            요청에 성공한경우 XML파일의 모든 내용이 콜백함수의 data로 전달된다.
+                        */
+                        console.log(data);
+                        /*
+                            콜백된 내용을 대상으로 paesing(파싱)을 진행한다.
+                            find()를 통해 XML파일의 노드(엘리먼트)를 찾고 attr()을 통해
+                            엘리먼트에 부여한 속성에 접근한다. text()를 통해 태그사이의
+                            값을 추출한다.
+                        */
+                        $(data).find("명함").each(function(){
+                            var html = "<div>이름: "+
+                                    $(this).find("성명").attr("이름")+"</div>";
+                            html += "<div>주소: "+
+                                    $(this).find("주소").text()+"</div>";
+                            html += "<div>직위: "+
+                                    $(this).find("직위").text()+"</div>";
+                            html += "<div>이메일: "+
+                                    $(this).find("e-mail").text()+"</div>";
+                            html += "<div>핸드폰: "+
+                                    $(this).find("Mobile").text()+"</div>";
+                            html += "<div>전화번호: "+
+                                    $(this).find("TEL").text()+"</div>";
+                            html += "<div>카피라이트: "+
+                                    $(this).find("copyright").text()+"</div>";
+                            // 파싱후 HTML코드로 만든 내용을 현재 페이지에 삽입한다.
+                            $('#xmlDisplay').html(html);
+                        });
+                    }
+                );
+            });
+        });
+        // XML문서 자체를 웹브라우저에 새창으로 출력한다.
+        function locationGo(link) {
+            window.open('./common/02NameCard.xml', 'xml', 'width=500,height=500');
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>$.get() 메소드 사용하기</h2>
+        <h3>xml파일 읽어오기</h3>
+        <button onclick="locationGo('');">NameCard.xml 바로가기</button>
+        <button id="btnXml">XML데이터 읽어오기</button>
+        <div class="displayDiv" id="xmlDisplay">
+            XML데이터 정보를 디스플레이합니다.
+        </div>
+    </div>
+</body>
+</html>

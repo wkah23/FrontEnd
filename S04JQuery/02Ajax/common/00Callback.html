@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+    </head>
+    <body>
+        <script>
+            // 해당 문서의 로드가 완료되면
+            window.onload = function(){
+                // 부모페이지의 DOM을 얻어온 후 텍스트를 설정한다.
+                parent.document.getElementById('callBackData').innerHTML
+                    = '콜백되었습니다.';
+                /*
+                    iframe 내에서 실행되는 페이지이므로 부모쪽으로 데이터를 보내기 위해서
+                    parent 타겟설정이 필요하다.
+                */
+            }
+            /*
+                콜백함수는 이와같이 요청이 완료 되었을때 자동으로 호출한다. 이를통해 요청에 대한
+                처리가 잘 되었는지 확인할 수 있다.
+            */
+        </script>
+        <h2>00Callback.html 파일입니다.</h2>
+    </body>
+</html>
